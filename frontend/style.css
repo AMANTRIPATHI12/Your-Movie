@@ -1,0 +1,250 @@
+/* --- Global Netflix-style theme --- */
+:root {
+  --bg-primary: #141414;
+  --bg-secondary: #1a1a2e;
+  --text-primary: #e5e5e5;
+  --text-secondary: #b3b3b3;
+  --accent-red: #e50914;
+  --card-hover-bg: #222;
+  --shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- Navbar --- */
+/* ----- Navbar search ----- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#search-input {
+  padding: 8px 15px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: var(--text-primary);
+  font-size: 1rem;
+  width: 220px;
+  transition: border-color 0.3s;
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--accent-red);
+}
+
+#clear-search {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#clear-search.hidden {
+  display: none;
+}
+
+/* Search results section */
+#search-results {
+  padding: 20px 40px;
+}
+
+#search-title {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  letter-spacing: 1px;
+}
+
+/* --- Movie rows (home page) --- */
+#movie-rows {
+  padding: 20px 40px;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+.row h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.movie-grid {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.movie-grid::-webkit-scrollbar {
+  height: 8px;
+}
+.movie-grid::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.movie-card {
+  flex: 0 0 auto;
+  width: 180px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: var(--shadow);
+  z-index: 5;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-info {
+  padding: 10px;
+}
+
+.card-info h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-info p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* --- Detail view --- */
+#detail-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.95);
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+#back-btn {
+  background: none;
+  border: 1px solid var(--text-secondary);
+  color: var(--text-secondary);
+  padding: 8px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+#back-btn:hover {
+  background-color: var(--accent-red);
+  border-color: var(--accent-red);
+  color: white;
+}
+
+.movie-detail {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.movie-detail .poster-large {
+  width: 300px;
+  border-radius: 6px;
+}
+
+.movie-info {
+  flex: 1;
+  min-width: 250px;
+}
+
+.movie-info h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.movie-info .meta {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.movie-info .meta span {
+  margin-right: 15px;
+}
+
+.movie-info .description {
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.movie-info .cast,
+.movie-info .director {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+}
+
+.trailer-container {
+  margin-top: 40px;
+}
+
+.trailer-container h3 {
+  margin-bottom: 15px;
+}
+
+.trailer-container iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: none;
+  border-radius: 6px;
+}
