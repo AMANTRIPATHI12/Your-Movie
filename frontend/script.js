@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ----- Auth UI -----
   function updateAuthUI() {
+    const prompt = document.getElementById('watchlist-login-prompt');
     if (currentUser) {
       loginBtn.classList.add('hidden');
       userEmailSpan.classList.remove('hidden');
@@ -68,16 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
       logoutBtn.classList.remove('hidden');
       watchlistSection.classList.remove('hidden');
       watchlistTvSection.classList.remove('hidden');
+      if (prompt) prompt.classList.add('hidden');
     } else {
       loginBtn.classList.remove('hidden');
       userEmailSpan.classList.add('hidden');
       logoutBtn.classList.add('hidden');
       watchlistSection.classList.add('hidden');
       watchlistTvSection.classList.add('hidden');
+      if (prompt) prompt.classList.remove('hidden');
     }
   }
 
   // ----- Auth modal handlers -----
+  document.getElementById('login-prompt-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    loginBtn.click();  // opens login modal
+  });
   loginBtn.addEventListener('click', () => {
     isLoginMode = true;
     authTitle.textContent = 'Login';

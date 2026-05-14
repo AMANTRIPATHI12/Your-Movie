@@ -423,3 +423,16 @@ body {
   animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+.watchlist-prompt {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+.watchlist-prompt a {
+  color: var(--accent-red);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.watchlist-prompt a:hover { color: #ff5555; }
