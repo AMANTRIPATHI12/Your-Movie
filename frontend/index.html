@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Movie - Movies From Everywhere</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Movie - Movies From Everywhere</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
-
 <body>
-    <div id="app">
-    <!-- Login/Signup Modal (hidden by default) -->
+  <div id="app">
+    <!-- Auth Modal -->
     <div id="auth-modal" class="modal hidden">
-        <div class="modal-content">
+      <div class="modal-content">
         <span id="close-modal" class="close">&times;</span>
         <h2 id="auth-title">Login</h2>
         <form id="auth-form">
-            <input type="email" id="auth-email" placeholder="Email" required />
-            <input type="password" id="auth-password" placeholder="Password" required />
-            <button type="submit">Submit</button>
+          <input type="email" id="auth-email" placeholder="Email" required />
+          <input type="password" id="auth-password" placeholder="Password" required />
+          <button type="submit">Submit</button>
         </form>
         <p id="toggle-auth">Don't have an account? <a href="#">Sign up</a></p>
         <p id="auth-error" class="error"></p>
-        </div>
+      </div>
     </div>
 
-    <!-- Home view -->
+    <!-- Home View -->
     <div id="home-view">
-        <header class="navbar">
+      <header class="navbar">
         <h1 class="logo">🎬 Your Movie</h1>
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search movies..." autocomplete="off" />
-            <button id="clear-search" class="hidden">✕</button>
+          <input type="text" id="search-input" placeholder="Search movies & TV..." autocomplete="off" />
+          <button id="clear-search" class="hidden">✕</button>
         </div>
         <div id="auth-buttons">
-            <button id="login-btn">Login</button>
-            <span id="user-email" class="hidden"></span>
-            <button id="logout-btn" class="hidden">Logout</button>
+          <a href="/watchlist" id="watchlist-page-link" class="hidden nav-watchlist-link">📋 My Watchlist</a>
+          <button id="login-btn">Login</button>
+          <span id="user-email" class="hidden"></span>
+          <button id="logout-btn" class="hidden">Logout</button>
         </div>
-        </header>
-        <main>
-        <!-- Your Movie watchlist section (only when logged in) -->
+      </header>
+
+      <main>
+        <!-- Quick watchlist rows (visible when logged in) -->
         <section id="watchlist-section" class="hidden">
-            <h2>🎯 Your Movie</h2>
-            <div id="watchlist-grid" class="movie-grid"></div>
+          <h2>🎯 Your Movie</h2>
+          <div id="watchlist-grid" class="movie-grid"></div>
         </section>
         <section id="watchlist-tv-section" class="hidden">
-            <h2>📺 Your Series</h2>
-            <div id="watchlist-tv-grid" class="movie-grid"></div>
+          <h2>📺 Your Series</h2>
+          <div id="watchlist-tv-grid" class="movie-grid"></div>
         </section>
         <section id="watchlist-login-prompt" class="watchlist-prompt">
-        <p>🔒 <a href="#" id="login-prompt-link">Login</a> to create your watchlist</p>
+          <p>🔒 <a href="#" id="login-prompt-link">Login</a> to create your watchlist</p>
         </section>
-        <!-- Normal rows -->
+
+        <!-- TMDB rows -->
         <section id="movie-rows"></section>
+
         <!-- Search results -->
         <section id="search-results" class="hidden">
-            <h2 id="search-title">Search Results</h2>
-            <div id="search-grid" class="movie-grid"></div>
+          <h2 id="search-title">Search Results</h2>
+          <div id="search-grid" class="movie-grid"></div>
         </section>
-        </main>
+      </main>
     </div>
 
-    <!-- Detail view (unchanged) -->
+    <!-- Detail View -->
     <div id="detail-view" class="hidden">
-        <div class="detail-container">
+      <div class="detail-container">
         <button id="back-btn">← Back</button>
         <div id="detail-content"></div>
-        </div>
+      </div>
     </div>
-    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script type="module" src="/js/home.js"></script>
 </body>
-
 </html>

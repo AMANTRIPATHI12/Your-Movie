@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Watchlist - Your Movie</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="navbar">
+      <h1 class="logo"><a href="/">🎬 Your Movie</a></h1>
+      <div id="auth-buttons">
+        <a href="/" class="nav-watchlist-link">Home</a>
+        <span id="user-email" class="hidden"></span>
+        <button id="logout-btn" class="hidden">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="watchlist-page">
+        <div class="watchlist-page-container">
+          <h2>Your Watchlist</h2>
+          <div id="watchlist-genre-groups"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/js/watchlist.js"></script>
+</body>
+</html>
